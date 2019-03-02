@@ -18,11 +18,15 @@
 
 - 你理解的对于类似ucore这样需要进程/虚存/文件系统的操作系统，在硬件设计上至少需要有哪些直接的支持？至少应该提供哪些功能的特权指令？
 
-- 你理解的x86的实模式和保护模式有什么区别？你认为从实模式切换到保护模式需要注意那些方面？
+- 答：进程的切换与调度需要用到时钟的中断，虚存的管理需要用到MMU等硬件，需要地址映射机制，文件系统需要硬盘等可以持久存储的存储介质。应当提供对中断，内存寻址模式，设置页表和文件系统相关的特权命令。
 
-- 物理地址、线性地址、逻辑地址的含义分别是什么？它们之间有什么联系？
+- 你理解的x86的实模式和保护模式有什么区别？物理地址、线性地址、逻辑地址的含义分别是什么？
+
+- 答：实模式是16位的寻址模式，保护模式是32位的寻址模式。在保护模式中，提供分页分段机制，此时物理内存地址不能直接被程序访问，程序内部的地址需要操作系统转化为物理地址去访问。实模式下系统程序和用户程序没有区别对待，用户程序可能会对系统程序进行修改。物理地址是处理器提交到总线上用于访问计算机系统中的内存和外设的最终地址。线性地址是指每一个应用程序以为自己独享系统的内存，是物理地址和逻辑地址的中间层。逻辑地址空间是应用程序直接使用的地址空间。
 
 - 你理解的risc-v的特权模式有什么区别？不同 模式在地址访问方面有何特征？
+
+- 答：
 
 - 理解ucore中list_entry双向链表数据结构及其4个基本操作函数和ucore中一些基于它的代码实现（此题不用填写内容）
 
@@ -77,17 +81,9 @@ SETGATE(intr, 1,2,3,0);
 
 宏定义和引用在内核代码中很常用。请枚举ucore或rcore中宏定义的用途，并举例描述其含义。
 
-
-## 问答题
-
-#### 在配置实验环境时，你遇到了那些问题，是如何解决的。
-
-## 参考资料
+#### reference
  - [Intel格式和AT&T格式汇编区别](http://www.cnblogs.com/hdk1993/p/4820353.html)
  - [x86汇编指令集  ](http://hiyyp1234.blog.163.com/blog/static/67786373200981811422948/)
  - [PC Assembly Language, Paul A. Carter, November 2003.](https://pdos.csail.mit.edu/6.828/2016/readings/pcasm-book.pdf)
  - [*Intel 80386 Programmer's Reference Manual*, 1987](https://pdos.csail.mit.edu/6.828/2016/readings/i386/toc.htm)
  - [IA-32 Intel Architecture Software Developer's Manuals](http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html)
- - [v9 cpu architecture](https://github.com/chyyuu/os_tutorial_lab/blob/master/v9_computer/docs/v9_computer.md)
- - [RISC-V cpu architecture](http://www.riscvbook.com/chinese/)
- - [OS相关经典论文](https://github.com/chyyuu/aos_course_info/blob/master/readinglist.md)

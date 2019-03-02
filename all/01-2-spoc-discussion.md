@@ -21,22 +21,28 @@
 
 ## 填空题
 
-* 当前常见的操作系统主要用____编程语言编写。
-* "Operating system"这个单词起源于____ 。
-* 在计算机系统中，控制和管理____ 、有效地组织____运行的系统软件称作____ 。
-* 允许多用户将若干个作业提交给计算机系统集中处理的操作系统称为____操作系统
-* 你了解的当前世界上使用最多的操作系统是____ 。
-* 应用程序通过____接口获得操作系统的服务。
-* 现代操作系统的特征包括____ ， ____ ， ____ ，____ 。
-* 操作系统内核的架构包括____ ， ____ ， ____ 。
+* 当前常见的操作系统主要用__C，C++，ASM编程语言__编程语言编写。
+* "Operating system"这个单词起源于__Operator__ 。
+* 在计算机系统中，控制和管理__各种资源__ 、有效地组织__多道程序__运行的系统软件称作__操作系统__ 。
+* 允许多用户将若干个作业提交给计算机系统集中处理的操作系统称为__批处理__操作系统
+* 你了解的当前世界上使用最多的操作系统是__分布式操作系统__ 。
+* 应用程序通过__系统调用__接口获得操作系统的服务。
+* 现代操作系统的特征包括__并发性__ ， __虚拟性__ ， __异步性__ ，__持久性__ 。
+* 操作系统内核的架构包括__微内核__ ， __外核__ ， __宏内核__ 。
 
 
 ## 问答题
 
 - 请总结你认为操作系统应该具有的特征有什么？并对其特征进行简要阐述。
-
+	答：操作系统应该具有虚拟性，并发性，异步性，共享性和持久性。
+	虚拟性：把一个物理上的尸体变成若干逻辑对应的东西，比如虚拟内存，虚拟外部设备等。
+	并发性：指的是多个时间在同一时间间隔内发生，但是在同一时刻只有一个应用程序在运行，并发是通过分时实现的。而操作系统的并发性指的就是它拥有的处理和调度多个应用程序同时执行的能力。
+	异步性：允许多个程序并发执行，不是一个应用程序一直运行到底，而是在中间有肯呢个暂停让给其他的程序运行。操作系统的异步性要求在相同的操作环境下，多次的执行结果完全相同，而不是产生关于时间的错误。
+	共享性：程序中的资源可以被内存中同时执行的不同的应用程序调用。
+	持久性：操作系统实现了文件系统之后，可以将数据等保存在磁盘等存储介质上。
 
 - 为什么现在的操作系统基本上用C语言来实现？为什么没有人用python，java来实现操作系统？
+	C语言是变成类语言，可以之间嵌入汇编代码，方便操控硬件。而python和java没有办法直接操控硬件，而且性能不稳定。
 
 ---
 
@@ -65,13 +71,3 @@
   - 输入的字符并输出你输入的字符
   - 请编写一个小程序，在RV下，能够产生各种异常/中断
   - 请编写一个小程序，在RV下，能够统计并显示内存大小
-
-## 参考资料
- - [Intel格式和AT&T格式汇编区别](http://www.cnblogs.com/hdk1993/p/4820353.html)
- - [x86汇编指令集  ](http://hiyyp1234.blog.163.com/blog/static/67786373200981811422948/)
- - [PC Assembly Language, Paul A. Carter, November 2003.](https://pdos.csail.mit.edu/6.828/2016/readings/pcasm-book.pdf)
- - [*Intel 80386 Programmer's Reference Manual*, 1987](https://pdos.csail.mit.edu/6.828/2016/readings/i386/toc.htm)
- - [IA-32 Intel Architecture Software Developer's Manuals](http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html)
- - [v9 cpu architecture](https://github.com/chyyuu/os_tutorial_lab/blob/master/v9_computer/docs/v9_computer.md)
- - [RISC-V cpu architecture](http://www.riscvbook.com/chinese/)
- - [OS相关经典论文](https://github.com/chyyuu/aos_course_info/blob/master/readinglist.md)
